@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 28360 -->
+    <style>
+        #wrap{min-width:1025px; height:9400px; width:100%;}
+        #noka{width:100%; height:100%; padding-top:30px; position: relative;}
+        #header{width:860px; position: fixed; left:50%; transform: translatex(-50%);}
+        #header ul{width:100%;}
+        #header li{float:left; margin-left:80px; font-size:25px; cursor: pointer; padding-bottom:3px;}
+        #header li:first-child{margin:0;}
+        .get{color:#fff; background-color:rgba(236,81,46); padding:0 30px; border-radius: 50px; margin-top:-10px; line-height: 50px;}
+        #header li:hover{border-bottom: 1px solid #000;}
+        #header .order:hover{border-bottom:none}
+
+        #container{width:100%; height:100%; }
+        #contInn{width:100%; height:100%; }
+        #textArea{width:1200px; left:250px; top:250px; position: fixed; font-weight: 900; }
+        #textArea .no1{width:800px; float:left; opacity: 1; transition:opacity 1s;}
+        #textArea .no1 .small{font-size: 40px;}
+        #textArea .no1 .big{font-size:80px; padding:10px 0 40px;}
+        #textArea .no1 .get{width:60px; margin-top:0px;}
+
+        #textArea .middleText{font-size:80px;  position:absolute; left:90%; top:0; transform: translatex(-50%);}
+        #textArea .middleText p{position:absolute; text-align:center; left:0; top:0;}
+        #textArea .no1{ transition:opacity 1s; position:absolute;}
+        #textArea .no2{ transition:opacity 1s; opacity:0;}
+        #textArea .no3{ transition:opacity 1s; opacity:0;}
+        #textArea .no4{ width:500px; transition:opacity 1s; opacity:0; transform: translatex(-25%);}
+        #textArea .lastText{width:600px; transform: translate(120%, 50%);}
+        #textArea .no5{transition:opacity 1s; opacity:0;}
+        #textArea .no5 .middle{font-size:40px;}
+        #textArea .no5 .big{font-size:80px; padding-bottom:20px;}
+        #textArea .no5 .small{font-size:30px;}
+
+        #imgBox{width:100%; position:absolute; left: 0; top:-70px; z-index: -1; }
+        #imgBox .BoxInnerT{height:7750px;}
+        #imgBox .imgBoxT{position: sticky; width:100%; top: 0px;}
+        #imgBox .imgBoxT img{display:block; margin: auto; max-width:100%;}
+        
+        /* #imgBox{width:100%; height:1800px;} */
+        #imgBox .BoxInnerB{height:2500px;}
+        #imgBox .imgBoxB{position: sticky; width:100%;  top: 0px; }
+        #imgBox .imgBoxB img{display:block; margin: auto; max-width:100%;}
+        #imgBox .back{width:100%;}
+        #imgBox .back img{width:100%;}
+
+        #footer{position:static; width:100%; height:1050px; background-color:#000; color:#fff; font-size:80px; font-weight: 700; text-align: center; line-height:1000px;}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="noka">
+            <header id="header">
+                <ul>
+                    <li>about</li>
+                    <li>pencil</li>
+                    <li>app</li>
+                    <li>eraser</li>
+                    <li>featured</li>
+                    <li class="order get">order</li>
+                </ul>
+            </header>
+            <div id="container">
+                <div id="contInn">
+                    <div id="textArea">
+                        <div class="no1">
+                            <p class="small">nuka</p>
+                            <p class="big">the last notebook
+                                you will ever need</p>
+                            <p class="get">get one</p>
+                        </div>
+                        <div class="middleText">
+                            <div class="no2">
+                                <p>create.</p>
+                            </div>
+                            <div class="no3">
+                                <p>erase.</p>
+                            </div>
+                            <div class="no4">
+                                <p>create again.</p>
+                            </div>
+                        </div>
+                        <div class="lastText">
+                            <div class="no5">
+                                <p class="middle">nuka</p>
+                                <p class="big">never-ending
+                                    story.</p>
+                                <p class="small">rewrite nuka as many times as you want making journaling safer for planet.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="imgBox">
+                        <div class="BoxInnerT">
+                            <div class="imgBoxT">
+                                <img src="img/00001.jpg">
+                            </div>
+                        </div>
+                        <div class="BoxInnerB">
+                            <div class="imgBoxB">
+                                <img src="img/000077.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <p>batch is almost sold out.</p>
+        </footer>
+    </div>
+    <script>
+        $(function(){
+ 
+          $(window).scroll(function () {
+ 
+             var height = $(window).scrollTop() / 100;
+             var position = $(window).scrollTop()
+             for(var i=1; i<=height; i++){
+                if($(window).scrollTop()>50){
+                   $(".imgBoxT img").attr("src","img/0000"+i+".jpg");
+                }else{
+                   $(".imgBoxT img").attr("src","img/0000"+i+".jpg");
+                } 
+             }
+             console.log(position)
+             if(position >= 1250 && position <= 1450){
+                 $(".no1").css({"opacity":"0"})
+                }else if(position >= 2600 && position <= 2800){
+                    $(".no2").css({"opacity":"1"})
+                }else if(position >= 5000 && position <= 6350){
+                    $(".no3").css({"opacity":"1"}).siblings().css("opacity","0")
+                }else if(position >=6375 && position <=7150){
+                    $(".no4").css({"opacity":"1"}).siblings().css("opacity","0")
+                }else if(position >=7250){
+                    $(".no4").css({"opacity":"0"});
+                }
+            for(var i=77; i<=height; i++){
+                if($(window).scrollTop()>50){
+                    $(".imgBoxB img").attr("src","img/0000"+i+".jpg");
+                }else{
+                    $(".imgBoxB img").attr("src","img/0000"+i+".jpg");
+                }
+            }
+            if(position >= 8300 && position <= 8600){
+                    $(".no5").css({"opacity":"1"})
+                    $(".no1", "#middleText").css("display","none")
+            }else if(position >= 8900){
+                $(".no5").css({"opacity":"0"})
+            }
+            })
+        }); 
+
+     </script>
+</body>
+</html>
